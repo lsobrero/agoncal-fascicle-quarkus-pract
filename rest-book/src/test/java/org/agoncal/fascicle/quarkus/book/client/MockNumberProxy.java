@@ -1,4 +1,3 @@
-// tag::adocTest[]
 package org.agoncal.fascicle.quarkus.book.client;
 
 import io.quarkus.test.Mock;
@@ -7,7 +6,6 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
 
-// tag::adocSnippet[]
 @Mock
 @ApplicationScoped
 @RestClient
@@ -21,4 +19,3 @@ public class MockNumberProxy implements NumberProxy {
     return isbnNumbers;
   }
 }
-// end::adocSnippet[]

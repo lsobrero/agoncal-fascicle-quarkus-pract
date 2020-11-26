@@ -10,7 +10,6 @@ import org.jboss.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 
-// tag::adocSnippet[]
 @ApplicationScoped
 class NumberApplicationLifeCycle {
 
@@ -33,4 +32,3 @@ class NumberApplicationLifeCycle {
     LOGGER.info("The application Number is stopping...");
   }
 }
-// end::adocSnippet[]

@@ -13,14 +13,11 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.util.Random;
 
-// tag::adocSnippet[]
 @Schema(description = "Book representation")
 @Entity
 public class Book extends PanacheEntity {
 
-  // tag::adocBeanValidation[]
   @NotNull
-  // end::adocBeanValidation[]
   @Schema(required = true)
   public String title;
   @Column(name = "isbn_13")
@@ -32,9 +29,7 @@ public class Book extends PanacheEntity {
   public Integer yearOfPublication;
   @Column(name = "nb_of_pages")
   public Integer nbOfPages;
-  // tag::adocBeanValidation[]
   @Min(1) @Max(10)
-  // end::adocBeanValidation[]
   public Integer rank;
   public BigDecimal price;
   @Column(name = "small_image_url")
@@ -42,19 +37,14 @@ public class Book extends PanacheEntity {
   @Column(name = "medium_image_url")
   public URL mediumImageUrl;
   @Column(length = 10000)
-  // tag::adocBeanValidation[]
   @Size(min = 1, max = 10000)
-  // end::adocBeanValidation[]
   public String description;
 
-  // tag::adocFindRandom[]
   public static Book findRandom() {
     long countBooks = Book.count();
     int randomBook = new Random().nextInt((int) countBooks);
     return Book.findAll().page(randomBook, 1).firstResult();
   }
-  // end::adocFindRandom[]
-  // tag::adocSkip[]
 
   // ======================================
   // =   Methods hash, equals, toString   =
@@ -77,6 +67,4 @@ public class Book extends PanacheEntity {
       ", description='" + description + '\'' +
       '}';
   }
-// end::adocSkip[]
 }
-// end::adocSnippet[]

@@ -30,8 +30,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//@formatter:off
-// tag::adocHeader[]
 @QuarkusTest
 @QuarkusTestResource(Database.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -70,7 +68,6 @@ public class BookResourceTest {
   private static int nbBooks;
   private static String bookId;
 
-// end::adocHeader[]
 
   @Test
   public void shouldSayPing() {
@@ -81,7 +78,6 @@ public class BookResourceTest {
       .body(is("ping"));
   }
 
-  // tag::adocOpenAPI[]
   @Test
   void shouldPingOpenAPI() {
     given()
@@ -101,9 +97,7 @@ public class BookResourceTest {
     then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocOpenAPI[]
 
-  // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
     given().
@@ -121,9 +115,7 @@ public class BookResourceTest {
     then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocHealth[]
 
-  // tag::adocMetrics[]
   @Test
   void shouldPingMetrics() {
     given()
@@ -133,7 +125,6 @@ public class BookResourceTest {
     then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocMetrics[]
 
   @Test
   public void shouldNotFindDummy() {
@@ -162,7 +153,6 @@ public class BookResourceTest {
       .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
   }
 
-  // tag::adocShouldNotAddInvalidItem[]
   @Test
   void shouldNotAddInvalidItem() {
     Book book = new Book();
@@ -177,9 +167,7 @@ public class BookResourceTest {
     then()
       .statusCode(BAD_REQUEST.getStatusCode());
   }
-  // end::adocShouldNotAddInvalidItem[]
 
-  // tag::adocShouldGetInitialItems[]
   @Test
   @Order(1)
   void shouldGetInitialItems() {
@@ -199,10 +187,8 @@ public class BookResourceTest {
     return new TypeRef<List<Book>>() {
     };
   }
-  // end::adocShouldGetInitialItems[]
 
   @DisabledOnNativeImage
-  // tag::adocShouldAddAnItem[]
   @Test
   @Order(2)
   void shouldAddAnItem() {
@@ -269,7 +255,6 @@ public class BookResourceTest {
   // end::adocShouldAddAnItem[]
 
   @DisabledOnNativeImage
-  // tag::adocShouldUpdateAnItem[]
   @Test
   @Order(3)
   void shouldUpdateAnItem() {
@@ -309,10 +294,8 @@ public class BookResourceTest {
       .body("mediumImageUrl", Is.is(UPDATED_MEDIUM_IMAGE_URL.toString()))
       .body("description", Is.is(UPDATED_DESCRIPTION));
   }
-  // end::adocShouldUpdateAnItem[]
 
   @DisabledOnNativeImage
-  // tag::adocShouldRemoveAnItem[]
   @Test
   @Order(4)
   void shouldRemoveAnItem() {
@@ -336,5 +319,4 @@ public class BookResourceTest {
 
     assertEquals(nbBooks, books.size());
   }
-  // end::adocShouldRemoveAnItem[]
 }

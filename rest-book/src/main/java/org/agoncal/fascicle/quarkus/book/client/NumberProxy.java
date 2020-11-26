@@ -7,7 +7,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-// tag::adocSnippet[]
 @Path("/api/numbers/book")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
@@ -16,4 +15,3 @@ public interface NumberProxy {
   @GET
   IsbnNumbers generateIsbnNumbers();
 }
-// end::adocSnippet[]

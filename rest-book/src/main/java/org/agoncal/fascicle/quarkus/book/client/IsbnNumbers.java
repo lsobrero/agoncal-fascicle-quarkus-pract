@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.book.client;
 
 import javax.json.bind.annotation.JsonbProperty;
 
-// tag::adocSnippet[]
 public class IsbnNumbers {
 
   @JsonbProperty("isbn_10")
@@ -10,7 +9,6 @@ public class IsbnNumbers {
   @JsonbProperty("isbn_13")
   private String isbn13;
 
-  // tag::adocSkip[]
   public String getIsbn10() {
     return isbn10;
   }
@@ -26,6 +24,4 @@ public class IsbnNumbers {
   public void setIsbn13(String isbn13) {
     this.isbn13 = isbn13;
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]

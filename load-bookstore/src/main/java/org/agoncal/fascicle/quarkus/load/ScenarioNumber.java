@@ -26,7 +26,6 @@ import static java.util.stream.Collectors.toList;
 
 public class ScenarioNumber extends ScenarioInvoker {
 
-  // tag::adocSnippet[]
   private static final String targetUrl = "http://localhost:8081";
 
   private static final String contextRoot = "/api/numbers/book";
@@ -44,5 +43,4 @@ public class ScenarioNumber extends ScenarioInvoker {
     )
       .collect(collectingAndThen(toList(), Collections::unmodifiableList));
   }
-  // end::adocSnippet[]
 }

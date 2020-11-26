@@ -14,14 +14,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.not;
 
-//@formatter:off
-// tag::adocSnippet[]
 @QuarkusTest
 public class NumberResourceTest {
 
-  // tag::adocNative[]
   @DisabledOnNativeImage
-  // end::adocNative[]
   @Test
   void shouldGenerateBookNumber() {
     given()
@@ -37,7 +33,6 @@ public class NumberResourceTest {
       .body("$", hasKey("ean_13"))
       .body("$", not(hasKey("generationDate")));
   }
-  // tag::adocPing[]
   @Test
   void shouldSayPing() {
     given()
@@ -47,8 +42,6 @@ public class NumberResourceTest {
       .statusCode(OK.getStatusCode())
       .body(is("ping"));
   }
-  // end::adocPing[]
-  // tag::adocOpenAPI[]
   @Test
   void shouldPingOpenAPI() {
     given()
@@ -59,9 +52,7 @@ public class NumberResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  // tag::adocNative[]
   @DisabledOnNativeImage
-  // end::adocNative[]
   @Test
   void shouldPingSwaggerUI() {
     given().
@@ -70,8 +61,7 @@ public class NumberResourceTest {
     then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocOpenAPI[]
-  // tag::adocHealth[]
+
   @Test
   void shouldPingLiveness() {
     given().
@@ -89,8 +79,7 @@ public class NumberResourceTest {
     then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocHealth[]
-  // tag::adocMetrics[]
+
   @Test
   void shouldPingMetrics() {
     given()
@@ -100,8 +89,6 @@ public class NumberResourceTest {
     then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocMetrics[]
-  // tag::adocSkip[]
   @Test
   void shouldNotFindDummy() {
     given()
@@ -109,6 +96,4 @@ public class NumberResourceTest {
       .then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]

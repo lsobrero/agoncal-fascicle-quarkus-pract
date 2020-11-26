@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.quarkus.load;
 
-// tag::adocSnippet[]
 public class BookStoreLoad {
 
   public static void main(String[] args) {
@@ -10,4 +9,3 @@ public class BookStoreLoad {
     numberScenario.start();
   }
 }
-// end::adocSnippet[]

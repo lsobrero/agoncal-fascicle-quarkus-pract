@@ -8,7 +8,6 @@ import org.jboss.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 
-// tag::adocSnippet[]
 @ApplicationScoped
 class BookApplicationLifeCycle {
 
@@ -29,4 +28,3 @@ class BookApplicationLifeCycle {
     LOGGER.info("The application Book is stopping...");
   }
 }
-// end::adocSnippet[]

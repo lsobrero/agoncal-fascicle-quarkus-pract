@@ -6,42 +6,24 @@ import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import java.time.Instant;
 
-// tag::adocSnippet[]
-// tag::adocOpenAPI[]
 @Schema(description = "Several formats of book numbers")
-// end::adocOpenAPI[]
 public class BookNumbers {
 
-  // tag::adocOpenAPI[]
   @Schema(required = true)
-  // end::adocOpenAPI[]
-  // tag::adocJSonB[]
   @JsonbProperty("isbn_10")
-  // end::adocJSonB[]
   private String isbn10;
-  // tag::adocOpenAPI[]
   @Schema(required = true)
-  // end::adocOpenAPI[]
-  // tag::adocJSonB[]
   @JsonbProperty("isbn_13")
-  // end::adocJSonB[]
   private String isbn13;
   private String asin;
-  // tag::adocJSonB[]
   @JsonbProperty("ean_8")
-  // end::adocJSonB[]
   private String ean8;
-  // tag::adocJSonB[]
   @JsonbProperty("ean_13")
-  // end::adocJSonB[]
   private String ean13;
-  // tag::adocJSonB[]
   @JsonbTransient
-  // end::adocJSonB[]
   private Instant generationDate;
 
   // Constructors, getters, setters
-  // tag::adocSkip[]
   public String getIsbn10() {
     return isbn10;
   }
@@ -105,6 +87,4 @@ public class BookNumbers {
       ", generationDate=" + generationDate +
       '}';
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]

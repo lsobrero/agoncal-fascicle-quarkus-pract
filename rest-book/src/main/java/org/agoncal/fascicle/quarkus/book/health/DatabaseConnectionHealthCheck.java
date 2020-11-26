@@ -11,7 +11,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
 
-// tag::adocSnippet[]
 @Readiness
 @ApplicationScoped
 public class DatabaseConnectionHealthCheck implements HealthCheck {
@@ -34,4 +33,3 @@ public class DatabaseConnectionHealthCheck implements HealthCheck {
     return responseBuilder.build();
   }
 }
-// end::adocSnippet[]

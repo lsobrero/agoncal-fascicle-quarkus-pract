@@ -7,7 +7,6 @@ public class BookTest {
   private Long id;
 
   public void shouldCRUD() {
-    // tag::adocSnippet[]
     // creating a book
     Book book = new Book();
     book.title = "H2G2";
@@ -24,7 +23,6 @@ public class BookTest {
 
     // counting all books
     long countAll = Book.count();
-    // end::adocSnippet[]
   }
 
 }

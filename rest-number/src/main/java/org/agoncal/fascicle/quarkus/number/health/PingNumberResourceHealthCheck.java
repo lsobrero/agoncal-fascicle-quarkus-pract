@@ -8,7 +8,6 @@ import org.eclipse.microprofile.health.Liveness;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-// tag::adocSnippet[]
 @Liveness
 @ApplicationScoped
 public class PingNumberResourceHealthCheck implements HealthCheck {
@@ -22,4 +21,3 @@ public class PingNumberResourceHealthCheck implements HealthCheck {
     return HealthCheckResponse.named("Ping Number REST Endpoint").up().build();
   }
 }
-// end::adocSnippet[]

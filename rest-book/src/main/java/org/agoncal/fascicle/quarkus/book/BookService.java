@@ -18,7 +18,6 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
-// tag::adocSnippet[]
 @ApplicationScoped
 @Transactional(Transactional.TxType.REQUIRED)
 public class BookService {
@@ -28,32 +27,21 @@ public class BookService {
   @Inject
   EntityManager em;
 
-  // tag::adocFaultTolerance[]
   @Inject
   @RestClient
   NumberProxy numberProxy;
 
-  // end::adocFaultTolerance[]
-  // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
-  // end::adocFallback[]
-  // tag::adocPersistBook[]
-  // tag::adocBeanValidation[]
   public Book persistBook(@Valid Book book) {
-    // tag::adocFaultTolerance[]
     // The Book microservice invokes the Number microservice
     IsbnNumbers isbnNumbers = numberProxy.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
 
-    // end::adocFaultTolerance[]
     Book.persist(book);
     return book;
   }
-  // end::adocBeanValidation[]
-  // end::adocPersistBook[]
 
-  // tag::adocFallback[]
 
   private Book fallbackPersistBook(Book book) throws FileNotFoundException {
     LOGGER.warn("Falling back on persisting a book");
@@ -64,7 +52,6 @@ public class BookService {
     throw new IllegalStateException();
   }
 
-  // end::adocFallback[]
   @Transactional(Transactional.TxType.SUPPORTS)
   public List<Book> findAllBooks() {
     return Book.listAll();
@@ -83,16 +70,13 @@ public class BookService {
     }
     return randomBook;
   }
-  // tag::adocBeanValidation[]
 
   public Book updateBook(@Valid Book book) {
     Book entity = em.merge(book);
     return entity;
   }
-  // end::adocBeanValidation[]
 
   public void deleteBook(Long id) {
     Book.deleteById(id);
   }
 }
-// end::adocSnippet[]
